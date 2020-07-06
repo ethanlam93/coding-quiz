@@ -1,0 +1,107 @@
+/* font for the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flexbox{
+    display:flex;
+    justify-content: center;
+}
+
+.flexbox2{
+    display:flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+/* style */
+.container {
+    text-align: center;
+}
+
+
+/* style */
+header h1{
+    padding: 30px;
+    font-size: 60px;
+    color: black;
+}
+
+h1.question{
+    padding: 30px;
+    font-size: 40px;
+    color:rgb(155, 35, 53);
+
+}
+/* style */
+.startbutton{
+    font-size: 25px;
+}
+
+/* style */
+.intro{
+    border-radius: 40px;
+    padding: 20px;
+    background-color:rgb(155, 35, 53);
+    font-size: 25px;
+    color: white;
+}   
+
+/* style */
+.startbutton {
+   text-align: center;
+ 
+}
+
+.timer{
+    font-size: 40px;
+}
+
+/* settting graphic style for start  button */
+.button-text{
+    padding:5px 40px 5px 40px;
+    border-radius: 40px;
+    background-color: rgb(91, 94, 166);
+    color: white;
+}
+
+.button-text:hover{
+    background-color: rgb(155, 35, 53);
+    font-size:30px;
+    color: white;
+    text-decoration: none;
+}
+
+
+.button-text:active{
+    font-size:50px;
+    
+}
+
+
+
+
+
+
+
+
+
+/* hide content */
+.hide{
+    display:none;
+}
+
+/* remove the dot in front of list item */
+.scoreDisplay{
+    list-style: none
+}
+
+#feedback{
+font-size: 40px;
+color: gray;
+padding-right: 150px;
+}
+@media only screen and (max-width: 600px) {
+    #congrats{
+        font-size: 25px;
+    }
+}

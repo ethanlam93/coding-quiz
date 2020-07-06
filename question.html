@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Top menu -->
+    <div class="topbar flexbox2">
+        <button id="highscore" class="button-text">
+            View High Scores
+        </button>
+        <div id="feedback"></div>
+        <div id="timer" class="timer"></div>
+    </div>
+    <!-- Questions -->
+    <div class="container">
+        <div class="row">
+            <header class="col-md-12">
+                <h1 class="question">Which of the following vegetables is not one of the ingredients of V-8 juice?</h1>
+            </header>
+        </div>
+    </div>
+    <!-- Choices -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="answer">
+                <ul>
+                    <li class="intro button-text" id="choice1">beet</li>
+                    <br>
+                    <li class="intro button-text" id="choice2">carrot</li>
+                    <br>
+                    <li class="intro button-text" id="choice3">spinach</li>
+                    <br>
+                    <li class="intro button-text" id="choice4">cabbage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" type="text/javascript"></script>
+</body>
+
+</html>

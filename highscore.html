@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Title -->
+    <header class="flexbox">
+        <h1 class="header ">High Score</h1>
+    </header>
+    <!-- list of scores -->
+    <div class="container">
+        <div class="row">
+            <ul class="scoreDisplay col-md-12 intro">
+
+            </ul>
+        </div>
+    </div>
+
+    <br>
+    <!-- Home and clear buttons -->
+    <div class="startbutton">
+        <button id="home" class="button-text ">Home</button>
+        <button id="clearHighScore" class="button-text">Clear Scores</button>
+    </div>
+
+
+    <script type="text/javascript">
+        var home = document.querySelector("#home")
+        var clearScore = document.querySelector("#clearHighScore")
+        var list = document.querySelector(".scoreDisplay")
+        var allListItems = document.querySelectorAll("li")
+        //Display scores based on local storage
+        function scoreboard() {
+            for (var i = 0; i < 5; i++) {
+                var highScoresObj = JSON.parse(localStorage.getItem("highscoreslist"));
+                var li = document.createElement("li");
+                li.textContent = highScoresObj[i].name + ": " + highScoresObj[i].score;
+                document.querySelector(".scoreDisplay").append(li);
+            }
+        }
+        //forward user to index.html when they click home
+        function goHome() {
+            location.replace("index.html")
+        }
+
+        //when user hit clear score it will clear all the <li> items and clear all local storage data
+        function clear() {
+            localStorage.clear()
+            while (list.firstChild) {
+                list.removeChild(list.lastChild);
+            }
+        }
+
+        
+        home.addEventListener("click", goHome)
+        clearScore.addEventListener("click", clear)
+        scoreboard()
+
+    </script>
+</body>
+
+</html>

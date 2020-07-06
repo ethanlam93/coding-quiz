@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 intro">
+                <!-- Greeting -->
+                <header>
+                    <h1 id="congrats" style="word-wrap:break-word">CONGRATULATIONS!</h1>
+                </header>
+                <!-- Display score and prompt user to save name -->
+                <div>Your Final Score is <span id="userFinalResult"></span></div>
+                <div>Please type your Name to save score</div>
+                <form>
+                    <input type="text" id="inputName" required />
+                    <button required>submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <script type="text/javascript">
+        
+        var showScore = document.getElementById("userFinalResult")
+        var submitBtn = document.querySelector("button")
+        var savedInput = document.querySelector("#inputName")
+        var form = document.querySelector("form")
+
+        //get result data from local storage and show user their current score
+        function finalResult() {
+            //get final score from local storage
+            var score = localStorage.getItem("Totalscore");
+            //set default score equal to -10 if player run out of time without answering any question
+            if (!score) { var score = -10 }
+            showScore.textContent = score;
+        }
+        finalResult()
+
+        //this function execute once the player input their name and click on the submit button
+        function saveScore(event) {
+            event.preventDefault()
+            //saving player name into local storage
+            var score = parseInt(localStorage.getItem("Totalscore"));
+            //set default score equal to -10 if player run out of time without answering any question
+            if (!score) { var score = -10 }
+            //save imputed name into local storage
+            var name = localStorage.setItem("name", savedInput.value)
+            // try get get highscore history from local storage
+            var highScores = localStorage.getItem("highscoreslist");
+            //if this is the first time you do this quiz, create a highscores list and insert it to local storage
+            if (!highScores) {
+                //create an empty array that will hold the all the score and corresponding name
+                var firstTimeScore = [];
+                //create an object hold score and player name 
+                var scoreAndName = {
+                    "score": score,
+                    "name": savedInput.value,
+                }
+                //add the first score and player's name to the array
+                firstTimeScore.push(scoreAndName)
+                //sort the array's score in descending order
+                firstTimeScore.sort(function (a, b) { return b.score - a.score })
+                //push the array back to local storage as a string
+                localStorage.setItem("highscoreslist", JSON.stringify(firstTimeScore));
+                //reset the score
+                localStorage.removeItem("Totalscore");
+                //forward to High Score page
+                toHighScore()
+            } else {
+                //get the existing array from local storage
+                var highScoresObj = JSON.parse(localStorage.getItem("highscoreslist"));
+                //create an object hold score and player name 
+                var scoreAndName = {
+                    "score": score,
+                    "name": savedInput.value,
+                }
+                //the the current score and player's name to the existing array
+                highScoresObj.push(scoreAndName)
+                //sort the array descending order
+                highScoresObj.sort(function (a, b) { return b.score - a.score })
+                //push the array back to local storage as a string
+                localStorage.setItem("highscoreslist", JSON.stringify(highScoresObj));
+                //reset the score
+                localStorage.removeItem("Totalscore");
+                //forward to High Score page
+                toHighScore()
+            }
+
+        }
+        // forward user to highscore page
+        function toHighScore() {
+            location.replace("highscore.html");
+        }
+
+        form.addEventListener("submit", saveScore)
+
+
+       
+    </script>
+</body>
+
+</html>

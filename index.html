@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <br>
+    
+    <div class="wrapper">
+        <!-- Greeting -->
+        <div class="container">
+            <div class="row">
+                <header class="col-md-12 header">
+                    <h1>FOOD QUIZ CHALLENGE!!!!!</h1>
+                </header>
+            </div>
+        </div>
+        <!-- Description -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 intro">
+                    DO YOU LOVE FOOD LIKE I DO?????? This is a multiple choice quiz all about FOOOOOD. There are to
+                    total of 10 questions to answer, once you click on an answer it will give you the result and move on
+                    the next question. Your score will be calculated at the end of the quiz. You will also be timed. You
+                    have a total of 50 seconds to answer all 10 questions<br>
+                    BEWARE: if you click on the wrong answer, your time will be subtracted by 5 seconds!!!<br>
+                    HAVE FUN!!!! THIS CODE IS CRAFTED BY ETHAN
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <!-- StartButton -->
+        <div class="startbutton">
+            <button class="button-text start">Start</button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <!-- Javacsript for start button -->
+    <script type="text/javascript">
+        var startBtn = document.querySelector(".start")
+        startBtn.addEventListener("click", startQuestions)
+        function startQuestions() {
+            location.replace("question.html")
+        }
+    </script>
+</body>
+
+</html>
