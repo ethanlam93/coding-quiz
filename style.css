@@ -64,19 +64,6 @@ h1.question{
     color: white;
 }
 
-.button-text:hover{
-    background-color: rgb(155, 35, 53);
-    font-size:30px;
-    color: white;
-    text-decoration: none;
-}
-
-
-.button-text:active{
-    font-size:50px;
-    
-}
-
 
 /* hide content */
 .hide{
@@ -108,4 +95,19 @@ padding-right: 150px;
 
     h1.question{
         font-size: 23px;}
+    
+}
+
+@media(hover: hover) and (pointer: fine) {
+    .button-text:hover{
+        background-color: rgb(155, 35, 53);
+        font-size:30px;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .button-text:active{
+        font-size:50px;
+        
+    }
 }

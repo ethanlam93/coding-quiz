@@ -55,6 +55,24 @@ var questionBank = [
     answer: "carrot"}
 ]
 
+
+//Set a timer to count down from 50 seconds, once the timer reach 0 second, clear the interval, and forward user to result page
+function timeClock(){
+    var clock = setInterval(function(){
+        timeCount--;
+        console.log(timeCount)
+        timerDisplay.textContent = timeCount;
+        if(timeCount <= 0){
+            clearInterval(clock);
+            toResult()
+        }
+
+    },1000)
+}
+//execute timer function
+timeClock()
+
+
 //when the user click on the first answer
 function DisplayQuestionAndAnswer(){
         event.preventDefault();
@@ -72,6 +90,7 @@ function DisplayQuestionAndAnswer(){
         //if user's answer is wrong, minus them 1 point, alert that they are wrong, send score to local Storage, and move to next question
         else{
             totalScore--;
+            timeCount = timeCount - 5;
             localStorage.setItem("Totalscore",totalScore)
             console.log("unmatch")
             //
@@ -109,21 +128,7 @@ choice3.addEventListener("click", DisplayQuestionAndAnswer)
 choice4.addEventListener("click", DisplayQuestionAndAnswer)
 
 
-//Set a timer to count down from 50 seconds, once the timer reach 0 second, clear the interval, and forward user to result page
-function timeClock(){
-    var clock = setInterval(function(){
-        timeCount--;
-        console.log(timeCount)
-        timerDisplay.textContent = timeCount;
-        if(timeCount === 0){
-            clearInterval(clock);
-            toResult()
-        }
 
-    },1000)
-}
-//execute timer function
-timeClock()
 
 
 //On you click on the highscore menu at the top left, it will forward to High Score page
