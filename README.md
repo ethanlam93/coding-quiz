@@ -37,3 +37,7 @@ THEN I can save my initials and score<br>
 4. This project relies heavily on local storage to store data from one html and retrieve it to use on another html, therefore, making the application very interactive.
 5. Due to screen size differences, I used a little media@ to style some elements for better display on mobile
 6. I added a special media queries to make the hovering effect only work on desktop screen, eliminate the touch screen hovering issue.
+
+
+My Github Repo: https://github.com/ethanlam93<br>
+Deployment: https://ethanlam93.github.io/coding-quiz-project/
